@@ -1,3 +1,8 @@
+/*
+ * Copyright 2021 HM Revenue & Customs
+ *
+ */
+
 package uk.gov.hmrc.test.ui.pages
 
 import org.openqa.selenium.By
@@ -6,14 +11,12 @@ object StartPage extends BasePage {
 
   override val url: String = "http://localhost:9005/agents-frontend/start-page"
 
-  def navigate(): Unit = {
-    driver.navigate().to(url)
-  }
+  def navigate(): Unit = driver.navigate().to(url)
 
-  val title: String = driver.getTitle
+  def title(): String = driver.getTitle
 
-  val signInButton: Unit = driver.findElement(By.linkText("Sign in")).click()
+  def signInButton(): Unit = driver.findElement(By.id("signIn")).click()
 
-  val registerButton: Unit = driver.findElement(By.linkText("Register")).click()
+  def registerButton(): Unit = driver.findElement(By.id("register")).click()
 
 }
