@@ -11,11 +11,11 @@ import uk.gov.hmrc.test.ui.pages._
 class RegistrationStepDef extends BaseStepDef {
 
   Given("a user is on the home screen"){
-    driver.navigate().to(HomePage.url)
+    StartPage.navigate()
   }
 
   When("the user fills in all the fields with valid information"){
-      HomePage.registerButton.click()
+      StartPage.registerButton()
 
       BusinessNamePage.bNameField.sendKeys("Business Name")
       BusinessNamePage.submitButton.click()
