@@ -9,7 +9,5 @@ elif [ "$BROWSER" = "firefox" ]; then
     DRIVER="-Dwebdriver.gecko.driver=/usr/local/bin/geckodriver"
 fi
 
-# Scalafmt checks have been separated from the test command to avoid OutOfMemoryError in Jenkins
-sbt scalafmtCheckAll scalafmtSbtCheck
 
 sbt -Dbrowser=$BROWSER -Denvironment=$ENV $DRIVER "testOnly uk.gov.hmrc.test.ui.cucumber.runner.Runner"
