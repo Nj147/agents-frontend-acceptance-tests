@@ -5,8 +5,7 @@
 
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
-import io.cucumber.messages.Messages.GherkinDocument.Feature.Scenario
-import uk.gov.hmrc.test.ui.pages.{DashboardPage, LoginPage, RemoveClientPage, StartPage, SuccessfulPage}
+import uk.gov.hmrc.test.ui.pages.{AddClientPage, ClientInputSuccessfull, DashboardPage, LoginPage, RemoveClientPage, StartPage, SuccessfulPage}
 
 class UserLoginJourney extends BaseStepDef {
 
@@ -56,7 +55,24 @@ class UserLoginJourney extends BaseStepDef {
     SuccessfulPage.success should include ("Successful")
   }
 
+  Given("the agent is redirected to the dashboard page") { () =>
+    DashboardPage.navigate()
+  }
 
+  When("the agent clicks on add client") { () =>
+    DashboardPage.addClientButton()
+  }
 
+  And("the agent inserts the crn") { () =>
+    AddClientPage.crnInput("CRNF487638B")
+  }
+
+  And("submits") { () =>
+    AddClientPage.submit()
+  }
+
+  Then("the agent is shown a successfull state") {() =>
+    ClientInputSuccessfull.success should include ("Successful")
+  }
 
 }

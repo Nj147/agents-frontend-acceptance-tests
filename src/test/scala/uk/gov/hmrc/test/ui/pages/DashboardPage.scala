@@ -20,7 +20,7 @@ object DashboardPage extends BasePage {
 
   def getClients: util.List[WebElement] = driver.findElements(By.className("govuk-table__row"))
 
-  def addClientButton(): Unit = driver.findElement(By.linkText("Add a client")).click()
+  def addClientButton(): Unit = driver.findElement(By.id("addClient")).click()
 
   def removeClientButton(xpath: String): Unit = driver.findElement(By.xpath(xpath)).click()
 

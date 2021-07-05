@@ -11,8 +11,15 @@
       Then the ARN should be displayed
       And there will be an area of the page that displays all clients linked to the agent
 
-      Scenario: An agent is able to remove a client
-        Given the agent is on the dashboard page
-        When the agent clicks on remove
-        And the agent clicks on yes to confirm they want to remove client
-        Then the agent should be shown a successfull state
+    Scenario: An agent is able to remove a client
+      Given the agent is on the dashboard page
+      When the agent clicks on remove
+      And the agent clicks on yes to confirm they want to remove client
+      Then the agent should be shown a successfull state
+
+    Scenario: An agent is able to add in a client
+      Given the agent is redirected to the dashboard page
+      When the agent clicks on add client
+      And the agent inserts the crn
+      And submits
+      Then the agent is shown a successfull state
