@@ -3,10 +3,10 @@
  *
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.frontend
 
 import org.openqa.selenium.{By, WebElement}
-
+import uk.gov.hmrc.test.ui.pages.BasePage
 import java.util
 
 object DashboardPage extends BasePage {
@@ -26,4 +26,5 @@ object DashboardPage extends BasePage {
 
   def logoutButton(): Unit = driver.findElement(By.linkText("Logout")).click()
 
+  def yourAccount(): WebElement = driver.findElement(By.id("yourAccount"))
 }
