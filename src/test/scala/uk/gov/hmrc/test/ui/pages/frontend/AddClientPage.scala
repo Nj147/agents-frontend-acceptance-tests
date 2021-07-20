@@ -3,9 +3,10 @@
  *
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.ui.pages.frontend
 
-import org.openqa.selenium.{By, WebElement}
+import org.openqa.selenium.By
+import uk.gov.hmrc.test.ui.pages.BasePage
 
 object AddClientPage extends BasePage {
   override val url: String = """_"""

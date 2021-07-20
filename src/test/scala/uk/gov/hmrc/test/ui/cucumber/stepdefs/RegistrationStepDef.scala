@@ -5,8 +5,8 @@
 
 package uk.gov.hmrc.test.ui.cucumber.stepdefs
 
-import uk.gov.hmrc.test.ui.pages._
-
+import uk.gov.hmrc.test.ui.pages.frontend.StartPage
+import uk.gov.hmrc.test.ui.pages.reg_frontend.{AddressPage, BusinessNamePage, ContactNumberPage, CorrespondencePage, EmailPage, PasswordPage, SummaryConfPage, SummaryPage}
 
 class RegistrationStepDef extends BaseStepDef {
 
@@ -51,11 +51,11 @@ class RegistrationStepDef extends BaseStepDef {
 
   When("clicks change on the update business name and submits a new value") {
     SummaryPage.updateBName().click()
-    BusinessNamePage.bNameField.sendKeys("New Business Name")
+    BusinessNamePage.bNameField.sendKeys("NewBusinessName")
     BusinessNamePage.submitButton.click()
   }
 
   Then("the summary page should display the new business name") { () =>
-    SummaryPage.bNameText.getText shouldBe "New Business Name"
+    SummaryPage.bNameText.getText should include("NewBusinessName")
   }
 }
