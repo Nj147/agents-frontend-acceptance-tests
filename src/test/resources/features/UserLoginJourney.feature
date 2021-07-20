@@ -8,7 +8,7 @@ Feature: logging in a user
     Then the agent should be redirected to the dashboard
 
   Scenario: An agent is able to view their ARN and a List of all clients
-    Given the dashboard page has loaded
+    Given the agent is on the dashboard page
     Then the ARN should be displayed
     And there will be an area of the page that displays all clients linked to the agent
 
@@ -16,14 +16,14 @@ Feature: logging in a user
     Given the agent is on the dashboard page
     When the agent clicks on remove
     And the agent clicks on yes to confirm they want to remove client
-    Then the agent should be shown a successfull state
+    Then the agent should be shown a successful state
 
   Scenario: An agent is able to add in a client
-    Given the agent is redirected to the dashboard page
+    Given the agent is on the dashboard page
     When the agent clicks on add client
     And the agent inserts the crn
     And submits
-    Then the agent is shown a successfull state
+    Then the agent is shown a successful state
 
   Scenario: An agent is able to update their email details
     Given the agent is on the dashboard page

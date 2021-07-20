@@ -9,7 +9,8 @@ import org.openqa.selenium.By
 import uk.gov.hmrc.test.ui.pages.BasePage
 
 object RemoveClientPage extends BasePage {
-  override val url: String = """"""
+
+  override val url: String = s"http://localhost:9005/agents-frontend/removeClient/"
 
   def getTitle: String = driver.getTitle
 

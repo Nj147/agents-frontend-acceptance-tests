@@ -10,7 +10,7 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object SuccessfulPage extends BasePage {
 
-  override val url: String = """ """
+  override val url: String = s"http://localhost:9005/agents-frontend/removed-confirmed/"
 
   def success: String = driver.findElement(By.className("govuk-panel__title")).getText
 

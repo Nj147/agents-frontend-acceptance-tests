@@ -10,9 +10,12 @@ import uk.gov.hmrc.test.ui.pages.BasePage
 
 object UpdatePage extends BasePage {
 
-  override val url: String = ""
+  override val url: String = "http://localhost:9005/agents-frontend/update-page"
+
+  def getTitle: String = driver.getTitle
 
   def updateEmail(): WebElement = driver.findElement(By.xpath("/html/body/div[2]/main/div/div/dl/div[2]/dd[2]/a"))
+
   def getEmail: String = driver.findElement(By.xpath("/html/body/div[2]/main/div/div/dl/div[2]/dd[1]")).getText
 
   def updateContactNumber(): WebElement = driver.findElement(By.xpath("/html/body/div[2]/main/div/div/dl/div[3]/dd[2]/a"))

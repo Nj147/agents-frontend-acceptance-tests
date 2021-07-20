@@ -9,6 +9,7 @@ import uk.gov.hmrc.test.ui.pages.frontend.{AddClientPage, ClientInputSuccessfull
 
 class UserLoginJourney extends BaseStepDef {
 
+  //Scenario 1
   Given("the Homepage has loaded") { () =>
     StartPage.navigate()
   }
@@ -27,7 +28,8 @@ class UserLoginJourney extends BaseStepDef {
     DashboardPage.title shouldBe ("Agent DashBoard")
   }
 
-  Given("""^the dashboard page has loaded$""") { () =>
+  //Scenario 2
+  Given("""the agent is on the dashboard page""") { () =>
     DashboardPage.navigate()
   }
 
@@ -39,10 +41,6 @@ class UserLoginJourney extends BaseStepDef {
     DashboardPage.getClients.size() shouldBe (2)
   }
 
-  Given("the agent is on the dashboard page") { () =>
-    DashboardPage.navigate()
-  }
-
   When("the agent clicks on remove") { () =>
     DashboardPage.removeClientButton("/html/body/div[2]/main/div/div/div/main/table/tbody/tr/td[5]/a")
   }
@@ -51,14 +49,11 @@ class UserLoginJourney extends BaseStepDef {
     RemoveClientPage.yes()
   }
 
-  Then("the agent should be shown a successfull state") { () =>
+  Then("the agent should be shown a successful state") { () =>
     SuccessfulPage.success should include("Successful")
   }
 
-  Given("the agent is redirected to the dashboard page") { () =>
-    DashboardPage.navigate()
-  }
-
+  //Scenario 3
   When("the agent clicks on add client") { () =>
     DashboardPage.addClientButton()
   }
@@ -71,7 +66,7 @@ class UserLoginJourney extends BaseStepDef {
     AddClientPage.submit()
   }
 
-  Then("the agent is shown a successfull state") { () =>
+  Then("the agent is shown a successful state") { () =>
     ClientInputSuccessfull.success should include("Successful")
   }
 
@@ -90,6 +85,7 @@ class UserLoginJourney extends BaseStepDef {
   }
 
   Then("they should be redirected to the update page which now displays the newly entered email value") {() =>
+    UpdatePage.getTitle shouldBe ("Your Account")
     UpdatePage.getEmail shouldBe ("testing@testing.com")
   }
 }
